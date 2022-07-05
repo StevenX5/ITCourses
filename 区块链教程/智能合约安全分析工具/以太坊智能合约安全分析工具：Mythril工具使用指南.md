@@ -28,7 +28,7 @@ $ sudo docker version
 
 如果安装成功，上面的命令会输出 Docker 的版本号，如下图：
 
-![](D:\资料\我的\项目\IT培训项目\区块链\课程\智能合约安全分析工具\images\mythril-docker-version.png)
+![Image text](images/mythril-docker-version.png)
 
 #### 安装 Docker 镜像
 
@@ -46,7 +46,7 @@ $ sudo docker run mythril/myth version
 
 如果安装成功，上面的命令会输出 Mythril 的版本号，如下图：
 
-![](D:\资料\我的\项目\IT培训项目\区块链\课程\智能合约安全分析工具\images\mythril-docker-mythril-version.png)
+![Image text](images/mythril-docker-mythril-version.png)
 
 #### Mythril 用法
 
@@ -58,7 +58,7 @@ $ sudo docker run mythril/myth --help
 
 Mythril 的帮助输出如下图：
 
-![](D:\资料\我的\项目\IT培训项目\区块链\课程\智能合约安全分析工具\images\mythril-docker-mythril-help.png)
+![Image text](images/mythril-docker-mythril-help.png)
 
 通过下面的命令对合约源代码进行安全分析：
 
