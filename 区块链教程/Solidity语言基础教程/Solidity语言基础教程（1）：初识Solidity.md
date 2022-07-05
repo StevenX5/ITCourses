@@ -127,11 +127,11 @@ function get() public view returns(string memory)
 
 [Remix ](https://remix.ethereum.org)是一个合约开发和编译器，可以在线使用，而无需安装任何东西。
 
-![](https://raw.githubusercontent.com/StevenX5/ITCourses/main/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%95%99%E7%A8%8B/Solidity%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/images/remix.png)
+![](images/remix.png)
 
 我们在Remix中编译、部署和运行这个样例合约。执行结果如下图：
 
-![](https://raw.githubusercontent.com/StevenX5/ITCourses/main/%E5%8C%BA%E5%9D%97%E9%93%BE%E6%95%99%E7%A8%8B/Solidity%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/images/remix-hellworld.png)
+![](images/remix-hellworld.png)
 
 ## 课程小结
 
