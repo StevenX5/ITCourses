@@ -4,7 +4,7 @@
 | SWC ID  | 英文标题                                            | 中文标题             | 危害程度 |
 | ------- | --------------------------------------------------- | -------------------- | -------- |
 | [SWC-100](SWC-100函数默认可见性.md) | Function Default Visibility                         | 函数默认可见性       | 高       |
-| SWC-101 | Integer Overflow and Underflow                      | 整数溢出             | 中       |
+| [SWC-101](SWC-101整数溢出.md) | Integer Overflow and Underflow                      | 整数溢出             | 中       |
 | SWC-102 | Outdated Compiler Version                           | 过时的编译器版本     | 低       |
 | SWC-103 | Floating Pragma                                     | 浮动的编译器版本     | 低       |
 | SWC-104 | Unchecked Call Return Value                         | 未检查的调用返回值   | 中       |
