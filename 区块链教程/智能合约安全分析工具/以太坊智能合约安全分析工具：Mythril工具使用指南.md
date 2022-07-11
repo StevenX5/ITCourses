@@ -1,12 +1,18 @@
 # 以太坊智能合约安全分析工具：Mythril工具使用指南
 
-Mythril 是一个免费的以太坊智能合约的安全分析工具。Mythril 能检测以太坊和其他兼容 EVM 的区块链构建的智能合约的安全漏洞，包括整数溢出、时间戳依赖、重入攻击等。注意，Mythril 的目标是找到常见的漏洞，而不能发现应用程序的业务逻辑问题。因此，如果你要对一个商用系统中的智能合约进行安全分析，建议使用成熟的商用化的安全审计产品，如 MythX、Certik、ChainSulting、OpenZeppelin 等。当然，这些产品不是免费的。
+Mythril 是一个**免费**的以太坊智能合约的安全分析工具。Mythril 能检测以太坊和其他兼容 EVM 的区块链构建的智能合约的安全漏洞，包括整数溢出、时间戳依赖、重入攻击等。
+
+注意，Mythril 的目标是找到合约中常见的漏洞，而不能发现应用程序的业务逻辑问题。
+
+因此，如果要对一个商用系统的智能合约进行安全分析，我们建议使用成熟的商用化的安全审计产品，如 MythX、Certik、ChainSulting、OpenZeppelin 等。当然，这些产品不是免费的。
 
 ## 环境搭建
 
 目前，Mythril 支持 MacOS 和 Ubuntu，不支持 Windows。
 
-首先安装 Mythril 的运行环境。我们的操作系统环境是 Ubuntu（版本18.0.4），它是安装在 Windows 10 系统虚拟机 VMware 环境下的 Linux 系统。安装 Mythril 有PyPI 库安装和 Docker 安装两种方式，本课程我们以 Docker 安装方式为例来详细介绍 Mythril 工具的安装。
+首先安装 Mythril 的运行环境。我们的操作系统环境是 Ubuntu（版本18.04），它是安装在 Windows 10 系统虚拟机 VMware 环境下的 Linux 系统。
+
+安装 Mythril 有PyPI 库安装和 Docker 安装两种方式，本课程我们以 Docker 安装方式为例来详细介绍 Mythril 工具的安装。
 
 ### Docker 安装
 
@@ -20,7 +26,7 @@ Mythril 是一个免费的以太坊智能合约的安全分析工具。Mythril �
 $ sudo apt-get install docker.io
 ```
 
-安装完成后，通过下面的命令查看版本：
+安装完成后默认 Docker 已启动，通过下面的命令查看版本：
 
 ```
 $ sudo docker version
@@ -28,7 +34,23 @@ $ sudo docker version
 
 如果安装成功，上面的命令会输出 Docker 的版本号，如下图：
 
-![Image text](images/mythril-docker-version.png)
+![](D:\资料\我的\项目\IT培训项目\区块链\课程\智能合约安全分析工具\images\mythril-docker-version.png)
+
+如果需要手动启动和停止 Docker，请使用下面的命令：
+
+```
+$ sudo service docker restart
+```
+
+查看 Docker 服务是否已启动，请使用下面的命令：
+
+```
+$ sudo systemctl status docker
+```
+
+如果 Docker 服务已启动，控制台输出如下图：
+
+![](D:\资料\我的\项目\IT培训项目\区块链\课程\智能合约安全分析工具\images\mythril-docker-status.png)
 
 #### 安装 Docker 镜像
 
@@ -46,7 +68,7 @@ $ sudo docker run mythril/myth version
 
 如果安装成功，上面的命令会输出 Mythril 的版本号，如下图：
 
-![Image text](images/mythril-docker-mythril-version.png)
+![](D:\资料\我的\项目\IT培训项目\区块链\课程\智能合约安全分析工具\images\mythril-docker-mythril-version.png)
 
 #### Mythril 用法
 
@@ -58,7 +80,7 @@ $ sudo docker run mythril/myth --help
 
 Mythril 的帮助输出如下图：
 
-![Image text](images/mythril-docker-mythril-help.png)
+![](D:\资料\我的\项目\IT培训项目\区块链\课程\智能合约安全分析工具\images\mythril-docker-mythril-help.png)
 
 通过下面的命令对合约源代码进行安全分析：
 
@@ -165,35 +187,9 @@ Transaction Sequence:
 
 Caller: [CREATOR], calldata: , value: 0x0
 Caller: [SOMEGUY], function: unknown, txdata: 0x00, value: 0xde0b6b3a7640000
-
-==== Unprotected Ether Withdrawal ====
-SWC ID: 105
-Severity: High
-Contract: Roulette
-Function name: fallback
-PC address: 150
-Estimated Gas Usage: 6947 - 61228
-Any sender can withdraw Ether from the contract account.
-Arbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.
---------------------
-In file: /tmp/Roulette.sol:19
-
-payable(msg.sender).transfer(address(this).balance)
-
---------------------
-Initial State:
-
-Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
-Account: [ATTACKER], balance: 0x826008e004f4e002, nonce:0, storage:{}
-
-Transaction Sequence:
-
-Caller: [CREATOR], calldata: , value: 0x0
-Caller: [SOMEGUY], function: unknown, txdata: 0x, value: 0x1
-Caller: [ATTACKER], function: unknown, txdata: 0x01020801, value: 0xde0b6b3a7640000
 ```
 
-通过以上的检测分析结果，我们可以看到，Mythril 工具确实检测出了合约中的漏洞。这个合约代码共有三个安全问题，其中两个是时间戳依赖漏洞，一个是不受保护的以太币提款漏洞。
+通过以上的检测分析结果，我们可以看到，Mythril 工具确实检测出了合约中的漏洞。这个合约代码共有两个时间戳依赖安全问题。
 
 **第一个安全漏洞**
 
@@ -232,24 +228,6 @@ PC address: 102
 Estimated Gas Usage: 6105 - 26200
 
 漏洞描述与第一个漏洞相同，均属于时间戳依赖的安全问题。
-
-**第三个安全漏洞**
-
-漏洞名称：不受保护的以太币提款
-
-SWC ID: 105
-
-Severity: High
-
-Contract: Roulette
-
-Function name: fallback
-
-PC address: 150
-
-Estimated Gas Usage: 6947 - 61228
-
-漏洞描述：任何发送者都可以从合约账户中提取以太币。合约创建者以外的任意发送者可以从合约账户中提取以太币。仔细验证业务逻辑，并确保适当的安全控制以防止意外的资金损失。
 
 **漏洞分类（SWC ID）详见 [智能合约缺陷分类和测试用例](https://swcregistry.io/)**
 
