@@ -23,16 +23,16 @@ pragma solidity ^0.8.13;
 // 第一个合约
 contract HelloWorld {
     // 状态变量
-    string public greet = "Hello World!";
+    string public str = "Hello World!";
 
     // set 函数
     function set(string memory s) public {
-        greet = s;
+        str = s;
     }
 
     // get 函数
     function get() public view returns(string memory) {
-        return greet;
+        return str;
     }
 }
 ```
@@ -68,9 +68,9 @@ Solidity编译器版本规范如下：
 | 5    | x          | 匹配所有版本                                                 |
 | 6    | 0.5或0.5.x | 匹配指定主版本号与次版本号下的所有版本                       |
 
-截止到目前，Solidity的编译器版本已更新到 `0.8.14`。我们建议在编译部署合约时，应该尽量使用最新版本，因为新版本会有一些新特性以及bug修复。
+截止到目前，Solidity的编译器版本已更新到 `0.8.15`。我们建议在编译部署合约时，应该尽量使用最新版本，因为新版本会有一些新特性以及bug修复。
 
-### 合约关键字
+### 合约类（对象）
 
 ```
 contract HelloWorld {
@@ -78,17 +78,17 @@ contract HelloWorld {
 }
 ```
 
-在Solidity语言中，合约类似于其他面向对象编程语言中的类。`contract` 是定义合约类的关键字，`HelloWorld` 是合约名称。我们建议合约名称和本地文件名用同一个名称。
+在Solidity语言中，合约类似于其他面向对象编程语言中的类。`contract` 是定义合约类的关键字，`HelloWorld` 是合约名称。我们建议合约名称和本地文件名用同一个名称，且第一个字母大写。
 
 合约还可以从其他合约继承，可以是一些特殊的合约，比如库（library）和接口（interface）。这些知识点我们会在后续的课程中讲解。
 
 ### 状态变量
 
 ```
-string public greet = "Hello World!";
+string public str = "Hello World!";
 ```
 
-这段代码中的 `greet` 就是一个状态变量，它是一个永久存储在合约存储中的值。
+这段代码中的 `str` 就是一个状态变量，它是一个永久存储在合约存储中的值。
 
 ### 函数
 
@@ -121,17 +121,17 @@ function get() public view returns(string memory)
 */
 ```
 
-## 合约执行
+## 合约部署
 
 我们推荐使用Remix来开发简单合约。
 
 [Remix ](https://remix.ethereum.org)是一个合约开发和编译器，可以在线使用，而无需安装任何东西。
 
-![](images/remix.png)
+![](D:\资料\我的\项目\IT培训项目\区块链\课程\Solidity语言基础教程\images\remix.png)
 
 我们在Remix中编译、部署和运行这个样例合约。执行结果如下图：
 
-![](images/remix-hellworld.png)
+![](D:\资料\我的\项目\IT培训项目\区块链\课程\Solidity语言基础教程\images\remix-hellworld.png)
 
 ## 课程小结
 

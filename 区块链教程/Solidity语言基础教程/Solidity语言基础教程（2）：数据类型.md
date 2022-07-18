@@ -1,6 +1,11 @@
 # Solidity语言基础教程（2）：数据类型
 
-Solidity是一种静态类型语言，这意味着每个变量都需要在编译时指定变量的类型。而且在Solidity中新声明的变量总是有一个默认值，具体的默认值跟类型有关，例如bool类型的默认值为false。
+## 基本概念
+
+Solidity中关于数据类型的定义如下：
+
++ Solidity是一种静态类型语言，这意味着每个变量都需要在编译时指定变量的类型；
++ Solidity中新声明的变量总是有一个默认值，具体的默认值跟类型有关，例如bool类型的默认值为false。
 
 ## 数据类型
 
@@ -44,7 +49,9 @@ enum <enum_name> { element 1, element 2, ..., element n }
 
 ## 合约例子
 
-例1：基本数据类型的声明与用法。
+### 例子1
+
+基本数据类型的声明与用法。
 
 ```
 // SPDX-License-Identifier: MIT
@@ -88,7 +95,13 @@ contract DataTypes {
  }
 ```
 
-例2：枚举类型的声明及用法。
+**输出：**我们在Remix中编译、部署和运行上面的合约例子，执行结果如下图：
+
+![](D:\资料\我的\项目\IT培训项目\区块链\课程\Solidity语言基础教程\images\remix-datatypes.png)
+
+### 例子2
+
+枚举类型的声明及用法。
 
 ```
 // SPDX-License-Identifier: MIT
@@ -129,15 +142,7 @@ contract Enum {
 }
 ```
 
-## 合约执行
-
-我们在Remix中编译、部署和运行上面的合约例子。
-
-例1的执行结果如下图：
-
-![](D:\资料\我的\项目\IT培训项目\区块链\课程\Solidity语言基础教程\images\remix-datatypes.png)
-
-例2的执行结果如下图：
+**输出：**我们在Remix中编译、部署和运行上面的合约例子，执行结果如下图：
 
 ![](D:\资料\我的\项目\IT培训项目\区块链\课程\Solidity语言基础教程\images\remix-enum.png)
 
