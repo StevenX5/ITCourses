@@ -87,7 +87,7 @@ contract Struct {
 }
 ```
 
-**输出：**我们在Remix中编译、部署和运行上面的合约例子，执行结果如下图：
+**输出**：我们在Remix中编译、部署和运行上面的合约例子，执行结果如下图：
 
 ![](images/remix-struct.png)
 
